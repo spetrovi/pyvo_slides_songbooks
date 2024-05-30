@@ -1,40 +1,159 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <title>Reveal.js Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <style>
+        pre {
+            white-space: pre-wrap;       /* CSS3 */
+            white-space: -moz-pre-wrap;  /* Firefox */
+            white-space: -pre-wrap;      /* Opera <7 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* IE */
+        }
+    </style>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Reveal.js core library -->
+    <script src="dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Lorem Ipsum -->
+            <section>
+                <h2>On the Waves of Piracy</h2>
+                <p>Open-Sourcing Traditional Culture, One Song at a Time (Using FastAPI)</p>
+                <p>Samuel Petrovič</p>
+            </section>
+ 
+            <section>
+                <img src="memes/8s0kyu.jpg" alt="Placeholder Image">
+            </section>        
+        
+        
+            <section>
+                <h2>Motivation</h2>
+                <ul>
+                    <li>Songbooks are awesome, but paper is a terrible medium</li>
+                    <li>Difficult to obtain</li>                    
+                    <li>Songbooks are databases anyway</li>
+                    <li>We want to query</li>
+                    <li>Poor accessibility</li>
+                </ul>
+            </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+            <section>
+                <h2>Songbook webapp</h2>
+                <h4>Requirements</h4>                
+                <ul>
+                    <li>Free access</li>                
+                    <li>Modern framework</li>
+                    <li>Good filter/search</li>
+                    <li>Custom collections</li>
+                    <li>Accessibility</li>
+                </ul>
+            </section>
+            
+            <section>
+            <section>
+                <h2>Songbook webapp</h2>
+                <h3>Implementation</h3>                
+                <ul>
+                    <li>Backend: FastAPI, Jinja2</li>
+                    <li>Database: SQLmodel, postgres, alembic</li>
+                    <li>Frontend: Bootstrap, HTMX</li>
+                    <li>Music: Lilypond</li>
+                </ul>
+            </section>
+            <section>
+                <h2>HTMX</h2>
+                <ul>
+                <li>React if you don't want to learn react</li>
+                <li>Serversize rendering</li>
+                <li>HATEOAS</li>
+                </ul>
+            </section>
+            <section>
+                <h2>HTMX and FastAPI Code Example</h2>
+                <h3>HTML:</h3>
+                <pre><code class="html">&lt;button class="btn btn-primary" hx-get="/create_songbook" hx-swap="beforeend" hx-target="#custom_songbooks"&gt;&lt;/button&gt;
+                </code></pre>                
+                <h3>FastAPI:</h3>
+                <pre><code class="python">@router.get("/create_songbook", response_class=HTMLResponse)
+@login_required
+def create_songbook(request: Request, session: Session = Depends(db.yield_session)):
+                </code></pre>
+            </section>
+            </section>
+            
+            <section>
+                <section>
+                    <h2>Live demo</h2>
+                    <h4>Hopefully</h4>                
+                </section>
+   
+                <section>
+                    <h2>Dashboard</h2>        
+                    <ul>
+                        <li>Custom collection create/edit</li>
+                    </ul>                            
+                </section>   
+                
+                <section>
+                    <h2>Book view</h2>        
+                    <ul>
+                        <li>Infinte scroll</li>
+                        <li>Song view</li>
+                        <li>MIDI player</li>
+                        <li>Filter</li>
+                        <li>Add button</li>
+                        <li>Dark mode</li>   
+                    </ul>                            
+                </section>
+                
+                <section>
+                    <h2>Custom collection</h2>        
+                    <ul>
+                        <li>Sort songs</li>
+                        <li>Remove song</li>
+                        <li>PDF engraving</li>
+                    </ul>                            
+                </section>
+                                                                                
+            </section>
+
+            <section>
+            <section>
+            <h3>Is this piracy?</h3>
+                <ul>
+                <li>Traditional culture cannot be copyrighted</li>
+                <li>Barely any copyright/licensing in the books</li>
+                <li>Can we use this to protect our culture?</li>
+                </ul>            
+            </section>
+            <section>
+                <img src="memes/8s092l.jpg" alt="Placeholder Image">
+            </section>       
+            </section>
+            
+        </div>
+    </div>
+
+    <script>
+        // Initialize Reveal.js
+        Reveal.initialize();
+    </script>
+</body>
 </html>
+
