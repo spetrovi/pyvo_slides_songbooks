@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Reveal.js Example</title>
+    <title>On the Waves of Piracy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" href="dist/reveal.css">
@@ -29,17 +29,15 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <!-- Slide 1: Lorem Ipsum -->
+            <section>
+                <h2>Epic gajdy intro</h2>
+            </section>
             <section>
                 <h2>On the Waves of Piracy</h2>
                 <p>Open-Sourcing Traditional Culture, One Song at a Time (Using FastAPI)</p>
                 <p>Samuel Petrovič</p>
             </section>
- 
-            <section>
-                <img src="memes/8s0kyu.jpg" alt="Placeholder Image">
-            </section>        
-        
+
         
             <section>
                 <h2>Motivation</h2>
@@ -72,10 +70,34 @@
                 <ul>
                     <li>Backend: FastAPI, Jinja2</li>
                     <li>Database: SQLmodel, postgres, alembic</li>
+                    <li>Music: Lilypond</li>                    
                     <li>Frontend: Bootstrap, HTMX</li>
-                    <li>Music: Lilypond</li>
                 </ul>
             </section>
+            <section>
+                <h2>Lilypond Example</h2>
+                <pre><code class="lilypond">scoredata = {
+  \version "2.24.1"
+  \clef violin
+  \key g \major
+  \time 2/4
+  \tempo 4 = 168
+\relative c''{
+  \autoBeamOff
+\repeat volta 2 {g8 g4 g8 | a4 a | d8 b4. | a4 r |} d8 d4 d8 | e4 d \break
+c8 c4 c8 | a4 g | b8 b4 b8 | a4 c | b a | g r
+}
+}
+
+\score {
+  <<
+    \new Staff \scoredata
+  >>
+  \layout{ }
+\midi{}
+}
+</code></pre>
+            </section>      
             <section>
                 <h2>HTMX</h2>
                 <ul>
@@ -134,6 +156,10 @@ def create_songbook(request: Request, session: Session = Depends(db.yield_sessio
             </section>
 
             <section>
+                <img src="memes/8s7gnu.jpg" alt="Placeholder Image">
+            </section>    
+
+            <section>
             <section>
             <h3>Is this piracy?</h3>
                 <ul>
@@ -143,10 +169,22 @@ def create_songbook(request: Request, session: Session = Depends(db.yield_sessio
                 </ul>            
             </section>
             <section>
-                <img src="memes/8s092l.jpg" alt="Placeholder Image">
+                <img src="memes/8s092l.jpg" alt="Is this piracy meme">
             </section>       
             </section>
-            
+            <section>
+                <h2>Thanks for listening</h2>
+                <ul>
+                <li>You can reach me by making a PR in the repo</li>
+                <li>https://github.com/spetrovi/songbook</li>
+                </ul>
+                <img src="memes/8s0kyu.jpg" alt="Sourcing meme">                
+            </section> 
+ 
+            <section>
+                <img src="memes/8s0kyu.jpg" alt="Open-sourced meme">
+            </section>        
+                    
         </div>
     </div>
 
